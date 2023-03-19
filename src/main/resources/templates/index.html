@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/CSS/stylesheet.css">
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+</head>
+<body style="background-color: #FFFFD2">
+    <header class="headersection" style="margin-top: 0px;">
+        <div class="titlespace">
+            <h1>PokeWiki</h1>
+            <h2>Red and Blue - SuperGameboy Edition</h2>
+        </div>
+    </header>
+    <main class="backgroundimg" style="display: flex; justify-content: center">
+            <div class="align">
+                <div class="container" style="float: left">
+                    <table style="  border: 1px solid black; border-collapse: collapse;">
+                        <thead>
+                        <th>Icon</th>
+                        <th>Nr</th>
+                        <th>Name</th>
+                        <th>Speed</th>
+                        <th>Spec-DEF</th>
+                        <th>Spec-ATK</th>
+                        <th>DEF</th>
+                        <th>ATK</th>
+                        <th>HP</th>
+                        <th>Prim-Type</th>
+                        <th>Sec-Type</th>
+                        </thead>
+                        <tbody>
+                        <tr th:each="pokemon : ${pokemons}">
+                            <td><img th:src="@{'/images/' + ${pokemon.pokedex_number} + '.PNG'}" width= "56" height="56"></td>
+                            <td th:text="${pokemon.pokedex_number}"></td>
+                            <td th:text="${pokemon.name}"></td>
+                            <td th:text="${pokemon.speed}"></td>
+                            <td th:text="${pokemon.special_defence}"></td>
+                            <td th:text="${pokemon.special_attack}"></td>
+                            <td th:text="${pokemon.defence}"></td>
+                            <td th:text="${pokemon.attack}"></td>
+                            <td th:text="${pokemon.hp}"></td>
+                            <td th:text="${pokemon.primary_type}"></td>
+                            <td th:text="${pokemon.secondary_type}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container glossary">
+                    <h2>Glossary</h2>
+                    <p>Spec = special</p>
+                    <p>Prim = primary</p>
+                    <p>Sec = secondary</p>
+                    <p>ATK = attack</p>
+                    <p>DEF = defence</p>
+                </div>
+            </div>
+    </main>
+    <footer>
+        <div class="footersection">
+            <div>
+                <h3>About</h3>
+                <p>Team</p>
+                <p>Jobs</p>
+                <p>Sources</p>
+            </div>
+            <div>
+                <h3>Help</h3>
+                <p>FAQ</p>
+                <p>Support</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p><i>23 2304501</i></p>
+                <p><i>mail@pokeWiki.org</i></p>
+                <p><i>Road 3, Fukushima 2512</i></p>
+            </div>
+        </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>
