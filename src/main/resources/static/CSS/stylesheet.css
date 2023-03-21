@@ -60,3 +60,9 @@ th, td {
     justify-content: flex-start;
     font-family: sans-serif;
 }
+.flexboxcolumn
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

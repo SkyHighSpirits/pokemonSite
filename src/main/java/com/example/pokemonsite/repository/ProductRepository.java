@@ -46,6 +46,34 @@ public class ProductRepository {
         }
         return pokemons;
     }
+
+    public void addPokemon(Pokemon pokemon)
+    {
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, UID, PWD);
+            final String CREATE_QUERY = "INSERT INTO pokemon(pokedex_number, name, speed, special_defence, special_attack, defence, attack, hp, primary_type, secondary_type) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(CREATE_QUERY);
+
+            preparedStatement.setInt(1, pokemon.getPokedex_number());
+            preparedStatement.setString(2, pokemon.getName());
+            preparedStatement.setInt(3, pokemon.getSpeed());
+            preparedStatement.setInt(4, pokemon.getSpecial_defence());
+            preparedStatement.setInt(5, pokemon.getSpecial_attack());
+            preparedStatement.setInt(6, pokemon.getDefence());
+            preparedStatement.setInt(7, pokemon.getAttack());
+            preparedStatement.setInt(8, pokemon.getHp());
+            preparedStatement.setString(9, pokemon.getPrimary_type());
+            preparedStatement.setString(10, pokemon.getSecondary_type());
+
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Could not create a pokemon");
+            e.printStackTrace();
+        }
+
+    }
 }
 
 

@@ -14,6 +14,11 @@ public class Pokemon {
     private String primary_type;
     private String secondary_type;
 
+    public Pokemon()
+    {
+
+    }
+
     public Pokemon(int pokedex_number, String name, int speed, int special_defence, int special_attack, int defence, int attack, int hp, String primary_type, String secondary_type) {
         this.pokedex_number = pokedex_number;
         this.name = name;
